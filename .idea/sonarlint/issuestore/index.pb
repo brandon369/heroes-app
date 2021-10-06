@@ -23,8 +23,6 @@ N
 src/selectors/getHeroByName.js,6/2/621a679b44d33ccdac6b744eebb380345a9e38eb
 B
 src/data/heroes.js,7/6/765c7aaa613bedd603b6c2c22fd5d3d11e431746
-H
-src/routers/AppRouter.js,4/3/4323285e91196ba5cb82d78221fdcc7a836d683b
 <
 src/index.js,f/9/f900edc44cb929c2267a16100a32851f6d5b477d
 B
