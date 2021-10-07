@@ -3,7 +3,7 @@ import {Redirect, useParams} from "react-router-dom";
 import {getHeroesById} from "../../selectors/getHeroById";
 
 import batman from '../../assets/heroes/dc-batman.jpg'
-const heroImages = require.context('../../assets/heroes/', true)
+import {heroImages} from "../../helpers/heroImages";
 
 const HeroesScreen = ({history}) => {
 
