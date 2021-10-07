@@ -2,13 +2,15 @@ import React, {useMemo} from 'react'
 import {Redirect, useParams} from "react-router-dom";
 import {getHeroesById} from "../../selectors/getHeroById";
 
+import batman from '../../assets/heroes/dc-batman.jpg'
+const heroImages = require.context('../../assets/heroes/', true)
 
 const HeroesScreen = ({history}) => {
 
   const {heroId} = useParams();
 
   // const hero = getHeroesById(heroId)
-  const hero =  useMemo(() => getHeroesById(heroId), [heroId]);
+  const hero = useMemo(() => getHeroesById(heroId), [heroId]);
   if (!hero) {
     return <Redirect to='/'/>
   }
@@ -16,7 +18,7 @@ const HeroesScreen = ({history}) => {
 
   const handleReturn = () => {
 
-    if(history.length <= 2) {
+    if (history.length <= 2) {
       hero.publisher === 'Marvel Comics' && history.push('/');
       hero.publisher === 'DC Comics' && history.push('/dc');
     } else {
@@ -34,11 +36,14 @@ const HeroesScreen = ({history}) => {
   } = hero
 
   return (
-    <div className='row mt-5 animate__animated animate__fadeInUp' >
+    <div className='row mt-5 animate__animated animate__fadeInUp'>
       <div className='col-4'>
-        <img src={`../assets/heroes/${heroId}.jpg`}
-             className='img-thumbnail'
-             alt={superhero}
+        <img
+          // src={`../assets/heroes/${heroId}.jpg`} /desde assets public
+          // src={batman} //import
+          className='img-thumbnail'
+          src={heroImages(`./${heroId}.jpg`).default}
+          alt={superhero}
         />
       </div>
 
